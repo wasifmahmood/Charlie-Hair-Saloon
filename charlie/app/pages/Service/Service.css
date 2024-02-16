@@ -1,0 +1,70 @@
+.service {
+    display: flex;
+}
+
+.sev-Text {
+    padding-top: 1rem;
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 29px;
+    font-weight: 400;
+    line-height: 29px;
+}
+
+.sev-heading {
+    position: relative;
+    font-family: "Alfa Slab One", display;
+    font-size: 80px;
+    font-weight: 400;
+    font-weight: bold;
+    line-height: 96px;
+    color: rgb(43, 22, 27)
+}
+
+.sev-heading::after {
+    content: " ";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50%;
+    height: 5px;
+    background-color: red;
+}
+
+.sev-para {
+    font-family: Aleo, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #333;
+    line-height: 30px;
+    margin: 20px 0;
+}
+
+.sev-point {
+    font-family: Aleo, sans-serif;
+    font-size: 15px;
+    Font-weight: 400 bold;
+    Line-height: 27.8571px;
+}
+
+.sev-Image {
+    padding-top: 10%;
+    width: 50%;
+    background-size: cover;
+    background-image: url(../../../assests/image/service.jpeg);
+}
+
+.menu-heading {
+    font-family: "Alfa Slab One", sans-serif;
+    font-size: 40px;
+    Font-weight: 400 bold;
+    line-height: 40px;
+}
+.menu-heading::after {
+    content: " ";
+    position: absolute;
+    bottom: -90px;
+    right: 0;
+    width: 50%;
+    height: 5px;
+    background-color: red;
+}
