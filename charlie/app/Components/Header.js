@@ -2,10 +2,10 @@
 import React, { useState } from 'react'
 import { HiOutlineMenu } from "react-icons/hi";
 import { HeaderDrawer } from './HeaderDrawer';
-import icon from '../../assests/image/icon.jpg';
 import Login from './Login';
 import BookNow from './Booknow';
-
+import icons from '../../assests/image/icons.jpg'
+import Image from 'next/image';
 
 
 const Header = () => {
@@ -17,22 +17,20 @@ const Header = () => {
 
     return (
         <div className='headermain d-flex justify-between p-3 px-4 bg-black '>
-            <div className='left d-flex justify-space-between text-white pt-2 '>
+            <div className='headerleft d-flex justify-space-between text-white pt-2 '>
                 <HiOutlineMenu size={25} onClick={toggleDrawer} />
             </div>
-            <div className='middle place-content-evenly text-white pt-2 d-flex'>
+            <div className='headermiddle text-white pt-2 d-flex'>
                 <h6>CHARLIE HAIR SALOON</h6>
-                <img src='icon'
-                    style={{
-                        backgroundImage: `url(${icon})`,
-                        backgroundSize:"cover",
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: 'center',
-                        // height: '500px',
-                    }}
+                <Image
+                    src={icons}
+                    alt="wasif"
+                    // layout="fill"
+                    objectfit="cover"
+                    style={{width:'10'}}
                 />
             </div>
-            <div className='right space-x-4 text-white '>
+            <div className='headerright space-x-4 text-white '>
                 <button>
                     <Login />
                 </button>
@@ -46,5 +44,3 @@ const Header = () => {
 }
 
 export default Header
-
-

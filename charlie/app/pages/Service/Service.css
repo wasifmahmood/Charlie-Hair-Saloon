@@ -39,32 +39,75 @@
     margin: 20px 0;
 }
 
-.sev-point {
+.sev-point 
+.menu-detail
+{
     font-family: Aleo, sans-serif;
     font-size: 15px;
     Font-weight: 400 bold;
     Line-height: 27.8571px;
 }
 
-.sev-Image {
+.service-right {
+    /* position: absolute; */
+    /* height: 100%; */
     padding-top: 10%;
     width: 50%;
     background-size: cover;
     background-image: url(../../../assests/image/service.jpeg);
 }
 
-.menu-heading {
+.menu-main-heading,
+.menu-heading
+{
     font-family: "Alfa Slab One", sans-serif;
     font-size: 40px;
-    Font-weight: 400 bold;
     line-height: 40px;
+    position: relative;
+    font-weight: bolder;
 }
-.menu-heading::after {
+
+.menu-main-heading::after {
     content: " ";
     position: absolute;
-    bottom: -90px;
-    right: 0;
-    width: 50%;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
     height: 5px;
     background-color: red;
+}
+
+.service-menu-cutting,
+.service-menu-Shave
+{
+    border-bottom: 4px dotted black;
+}
+.menu-left {
+    width: 35%;
+}
+
+.menu-middle {
+    width: 30%;
+    /* height: 100%; */
+    background-image: url(../../../assests/image/brush.png);
+
+}
+
+.menu-right {
+    width: 35%;
+
+}
+.menu-middle-Shave{
+    width: 30%;
+    background-image: url(../../../assests/image/Razor.png);
+}
+.menu-middle-Trim{
+    width: 30%;
+    background-image: url(../../../assests/image/brushBW.png);
+}
+.Specical{
+    /* background-image: url(../../../assests/image/trendy.jpg); */
+    height: 100%;
+    width: 100%;
 }
