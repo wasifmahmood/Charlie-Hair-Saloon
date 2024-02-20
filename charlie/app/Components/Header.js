@@ -23,8 +23,8 @@ const Header = () => {
             <div className='headermiddle text-white pt-2 d-flex'>
                 <h6>CHARLIE HAIR SALOON</h6>
                 <Image
-                    src={icons}
-                    alt="wasif"
+                    // src={icons}
+                    // alt="wasif"
                     // layout="fill"
                     objectfit="cover"
                     style={{width:'10'}}
