@@ -4,7 +4,7 @@ import { HiOutlineMenu } from "react-icons/hi";
 import { HeaderDrawer } from './HeaderDrawer';
 import Login from './Login';
 import BookNow from './Booknow';
-import icons from '../../assests/image/icons.jpg'
+import charlie from '../../assests/image/charlie.jpg'
 import Image from 'next/image';
 
 
@@ -23,11 +23,10 @@ const Header = () => {
             <div className='headermiddle text-white pt-2 d-flex'>
                 <h6>CHARLIE HAIR SALOON</h6>
                 <Image
-                    src={icons}
+                    src={charlie}
                     alt="wasif"
-                    // layout="fill"
                     objectfit="cover"
-                    style={{width:'10'}}
+                    style={{ width: '30px', height: '30px' }}
                 />
             </div>
             <div className='headerright space-x-4 text-white '>
