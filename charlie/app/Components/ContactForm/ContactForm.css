@@ -2,6 +2,5 @@
     font-family: "Fjalla One", sans-serif;
 }
 .border1{
-    color: red;
-    height: 20px;
+   border-bottom:  2px solid  gray;
 }
