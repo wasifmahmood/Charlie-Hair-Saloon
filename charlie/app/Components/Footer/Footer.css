@@ -1,5 +1,6 @@
 .footerleft {
     width: 35%;
+    height: 100%;
 }
 
 .footertext {
@@ -11,9 +12,11 @@
 
 .footerright {
     width: 65%;
+    height: 100%;
 
 }
 
 .button {
     padding: 15px 20px;
 }
+

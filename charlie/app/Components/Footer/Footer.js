@@ -12,10 +12,10 @@ const Footer = () => {
     return (
         <div>
             <div className='footer d-flex '>
-                <div className='footerleft'>
+                <div className='footerleft w-full h-full'>
                     <Image src={footer} />
                 </div>
-                <div className='footerright px-24 pt-16'>
+                <div className='footerright px-24 pt-16 '>
                     <p className='footertext'>Stay in touch</p>
                     <Box
                         component="form"
@@ -25,25 +25,25 @@ const Footer = () => {
                         noValidate
                         autoComplete="off"
                     >
-                        <div className='inputfield d-flex gap-8 pt-2'>
-                            <TextField id="standard-basic" label="First Name" variant="standard" />
-                            <TextField id="standard-basic" label="Last Name" variant="standard" />
+                        <div className='inputfield d-flex gap-16 pt-2'>
+                            <TextField id="First-Name" label="First Name" variant="standard" />
+                            <TextField id="Last-Name" label="Last Name" variant="standard" />
                         </div>
-                        <div className='inputfield d-flex gap-8 pt-4'>
-                            <TextField id="standard-basic" label="Your Email *" variant="standard" />
-                            <TextField id="standard-basic" label="Favorite Location *" variant="standard" />
-                            <button className='btn btn-danger btn-lg bg-red-600 p-2 text-white '>Submit</button>
+                        <div className='inputfield d-flex gap-16 pt-4 pb-4'>
+                            <TextField id="Your-Email" label="Your Email *" variant="standard" />
+                            <TextField id="Location" label="Favorite Location *" variant="standard" />
                         </div>
-                        <div className='p-12 d-flex gap-16 text-center'>
+                        <button className='btn btn-danger  pt-2 text-white w-9/12'>Submit</button>
+                        <div className='p-8 d-flex gap-16 text-center text-red-600'>
                             <div>
-                                <p>Time for a Haircut?</p>
-                                <p className='text-red-600'>Our Services</p>
-                                <p className='text-red-600'>Location</p>
+                                <p className='text-black'>Time for a Haircut?</p>
+                                <p>Our Services</p>
+                                <p>Location</p>
                             </div>
                             <div>
-                                <p>Looking for More?</p>
-                                <p className='text-red-600'>About Us</p>
-                                <p className='text-red-600'>Contact Us</p>
+                                <p className='text-black'>Looking for More?</p>
+                                <p>About Us</p>
+                                <p>Contact Us</p>
                                 <p></p>
                             </div>
                         </div>
