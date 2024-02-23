@@ -1,0 +1,22 @@
+.footerleft {
+    width: 35%;
+    height: 100%;
+}
+
+.footertext {
+    font-family: "Fjalla One", sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.footerright {
+    width: 65%;
+    height: 100%;
+
+}
+
+.button {
+    padding: 15px 20px;
+}
+
