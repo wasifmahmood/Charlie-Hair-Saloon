@@ -1,0 +1,23 @@
+.mainpage {
+    display: flex;
+    height: 30%;
+}
+
+.homeimage {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+}
+
+.maintext-heading,
+.font-heading {
+    font-weight: bolder;
+}
+
+.maintext {
+    position: absolute;
+    padding-top: 20%;
+    padding-left: 50%;
+    padding-right: 10%;
+}

@@ -10,7 +10,7 @@ export default function Home() {
     <main >
       <Header />
       <Mainpage/>
-      <Footer/>
+      <Footer/>?
     </main>
   );
 }
