@@ -1,121 +1,124 @@
+"use client";
 import React from "react";
 import "./ContactForm.css";
 import { FaFacebook } from "react-icons/fa";
 import { CiInstagram } from "react-icons/ci";
 import { FaLinkedinIn } from "react-icons/fa";
+import { TfiMapAlt } from "react-icons/tfi";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
+import { useState } from "react";
 
 const ContactForm = () => {
+  const [fname, setfName] = useState("");
+  const [lname, setlName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
   return (
     <>
-      <div className="flex w-full h-full ">
-        <div className="flex flex-col pl-40 pt-80 ">
-          <div className="space-y-7 ">
-            <p className="hover:bg-orange-600 h-[40px] w-[40px] flex items-center justify-center rounded-md">
-              {" "}
-              <FaFacebook />
-            </p>
-            <p className="hover:bg-orange-600 h-[40px] w-[40px] flex items-center justify-center rounded-md">
-              {" "}
-              <CiInstagram />{" "}
-            </p>
-            <p className="hover:bg-orange-600 h-[40px] w-[40px] flex items-center justify-center rounded-md">
-              {" "}
-              <FaLinkedinIn />{" "}
-            </p>
-          </div>
+      <div className="contact-form d-flex p-16">
+        <div className=" icons w-1/5 p-24 flex-col flex justify-evenly">
+          <li className="hover:bg-orange-600 h-12 w-12 rounded-lg p-2 list-none">
+            <FaFacebook size={30} />
+          </li>
+          <li className="hover:bg-orange-600 h-12 w-12 rounded-lg p-2 list-none">
+            <CiInstagram size={30} />
+          </li>
+          <li className="hover:bg-orange-600 h-12 w-12 rounded-lg p-2 list-none">
+            <FaLinkedinIn size={30} />
+          </li>
         </div>
-        <div className=" ">
-          <div className=" p-20  ">
-            <h1 className="m-2  pb-4 text-[40px] lending-[56px] font-style font-normal">
-              Send Message
-            </h1>
-
-            <label
-              className="leading-[27px] text-[16px] font-bold"
-              htmlFor="fullname"
-            >
-              Name <span className=' text-orange-900leading-[23px] text-[13px] font-light'> (required)</span>
-            </label>
-            <div className="flex p-2">
-              <input
-                id="fullname"
-                type="text"
-                placeholder="first"
-                className="outline-none w-1/2 bg-transparent p-3 border1 mr-3"
-              />
-              <input
-                id="fullname"
-                type="text"
-                placeholder="last"
-                className="outline-none w-1/2 bg-transparent p-3 border1"
-              />
-            </div>
-
-            <label
-              className="leading-[27px] text-[16px] font-bold mt-3"
-              htmlFor="email"
-            >
-              Email <span className= 'text-orange-900 leading-[23px] text-[13px] font-light'> (required)</span>
-            </label>
-            <br />
-              <input
-                id="email"
-                type="email"
-                className="outline-none w-full bg-transparent p-3 border1 "
-              />
-        
-            <label
-              className="block p-0 leading-[27px] text-[16px] font-bold mt-3"
-              htmlFor="phone"
-            >
-              phone
-            </label>
-            <div>
-              <input
-                id="phone"
-                type="text"
-                className="outline-none w-full bg-transparent p-3 border1"
-              />
-            </div>
-            <label className="block p-0 leading-[27px] text-[16px] font-bold mt-3" htmlFor="help">
-              What can we help you with?{" "}
-              <span className=" text-red-600 leading-[23px] text-[13px] font-light">(Required)</span>
-            </label>
-            <div className="">
-              <select
-                id="help"
-                name="help"
-                className="outline-none w-full bg-transparent p-4 border1"
-              >
-                <option value=" Question about Product and Service">
-                  Question about Product and Service
-                </option>
-                <option value="Feedback on a recent experience in a saloon">
-                  Feedback on a recent experience in a saloon
-                </option>
-                <option value="Sponsorships and Donations">
-                  Sponsorships and Donations
-                </option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <label className="pb-4  mt-3 pt-3 leading-[27px] text-[16px] font-bold" htmlFor="C-or-Q">
-              Comments or Questions
-            </label>
-            <br />
+        <div className="form  w-2/4">
+          <h1 className="pb-4 text-center font-black">Send Message</h1>
+          <label
+            className="leading-[27px] text-[16px] font-bold"
+            htmlFor="fullname"
+          >
+            Name
+            <span className=" text-orange-900leading-[23px] text-[13px] font-light">
+              (required)
+            </span>
+          </label>
+          <div className="flex p-2">
             <input
-              id="C-or-Q"
+              id="fullname"
               type="text"
-              className="outline-none w-full bg-transparent mb-2 p-4 border1"
+              placeholder="first"
+              value={fname}
+              onChange={(e) => setfName(e.target.value)}
+              className="outline-none w-1/2 bg-transparent p-2 border1 mr-3"
             />
-            <br />
-            <button className="bg-red-600 text-white  mt-4 p-2 hover:bg-slate-300">
-              Submit
-            </button>
+            <input
+              id="fullname"
+              type="text"
+              placeholder="last"
+              value={lname}
+              onChange={(e) => setlName(e.target.value)}
+              className="outline-none w-1/2 bg-transparent p-2 border1"
+            />
           </div>
+
+          <label className=" text-[16px] font-bold " htmlFor="email">
+            Email
+            <span className="text-orange-900  text-[13px] font-light">
+              (required)
+            </span>
+          </label>
+          <br />
+          <input
+            id="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="outline-none w-full bg-transparent p-2 border1 "
+          />
+          <label className=" text-[16px] font-bold " htmlFor="phone">
+            Phone
+          </label>
+          <div>
+            <input
+              id="phone"
+              type="text"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="outline-none w-full bg-transparent p-2 border1"
+            />
+          </div>
+          <label className="text-[16px] font-bold" htmlFor="C-or-Q">
+            Comments or Questions
+          </label>
+          <br />
+          <input
+            id="C-or-Q"
+            type="text"
+            className="outline-none w-full bg-transparent p-2 border1"
+          />
+          <br />
+          <button className="bg-red-600 text-white  mt-6 p-2 hover:bg-slate-300">
+            Submit
+          </button>
         </div>
-        <div>
-          
+        <div className="address p-16 w-1/3">
+          <div className="flex gap-3 font-style">
+            <span>
+              <TfiMapAlt size={30} />
+            </span>
+            <h3 className="font-bold  font-style">Corporate Office</h3>
+          </div>
+
+          <div className="pl-10 pt-4">
+            <p>1846 Craig Park Ct.</p>
+            <p>St. Louis, MO 63146</p>
+          </div>
+          <div className="flex gap-3 pt-4">
+            <FaPhoneAlt size={30} />
+            <h2 className="font-normal font-style">314-576-7300</h2>
+          </div>
+          <div className="flex gap-3 pt-3">
+            <FaCalendarAlt size={30} />
+            <h2 className="font-normal font-style">314-576-7310</h2>
+          </div>
         </div>
       </div>
     </>
