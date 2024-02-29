@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image';
 import React from 'react'
 import './Mainpage.css'
@@ -12,18 +13,30 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
+import { FaSearchPlus } from "react-icons/fa";
 import G1 from "../../../assests/image/G1.jpg"
 import G2 from "../../../assests/image/G2.jpg"
-import G3 from "../../../assests/image/G3.jpeg"
+import G3 from "../../../assests/image/G3.jpg"
 import G4 from "../../../assests/image/G4.jpg"
 import G5 from "../../../assests/image/G5.jpg"
 import G6 from "../../../assests/image/G6.jpg"
 import G7 from "../../../assests/image/G7.jpg"
 import G8 from "../../../assests/image/G8.jpg"
 import Home from "../../../assests/image/Home.jpg"
+import { useState } from 'react';
 
 
 export const Mainpage = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const openPopup = (imageUrl) => {
+    setSelectedImage(imageUrl);
+  };
+
+  const closePopup = () => {
+    setSelectedImage(null);
+  };
+
   return (
     <div>
       <div className='mainpage'>
@@ -135,32 +148,35 @@ export const Mainpage = () => {
           </span>
         </div>
       </div>
-      <div className='Galary pt-16'>
+      <div className='Gallery pt-16'>
         <span className='text-center'>
-          <p className='text-gray-600 font-black'>Galary</p>
+          <p className='text-gray-600 font-black'>Gallery</p>
           <h2 className='font-black'>PHOTOS OF YOUR EVENTS</h2>
         </span>
-        <span className='Event-Img d-flex pt-16 '>
-          <Image src={G1} className='w-1/4 h-1/4' />
-          <Image src={G2} className='w-1/4 h-1/4' />
-          <Image src={G3} className='w-1/4 h-1/4' />
-          <Image src={G4} className='w-1/4 h-1/4' />
-        </span>
-        <span className='Event-Img d-flex'>
-          <Image src={G5} className='w-1/4 h-1/4' />
-          <Image src={G6} className='w-1/4 h-1/4' />
-          <Image src={G7} className='w-1/4 h-1/4' />
-          <Image src={G8} className='w-1/4 h-1/4' />
-        </span>
+        <div className='Event-Img d-flex pt-16'>
+          {[G1, G2, G3, G4, G5, G6, G7, G8].map((imageUrl, index) => (
+            <p className='image-container w-1/4' key={index} onClick={() => openPopup(imageUrl)}>
+              <Image src={imageUrl} alt={`Image ${index + 1}`} />
+              <h4 className='overlay'><FaSearchPlus /></h4>
+            </p>
+          ))}
+        </div>
+        {selectedImage && (
+          <div className="popup" onClick={closePopup}>
+            <span className="close" onClick={closePopup}>&times;</span>
+            <Image src={imageUrl} alt="Popup Image" />
+          </div>
+        )}
       </div>
+
       <div className='Pricing p-16'>
         <span className='text-center'>
           <p className='text-gray-600 font-black'>Pricing</p>
           <h2 className='font-black'>PRICE & PLANS</h2>
         </span>
-        <div className='Event-Img d-flex pt-16 gap-4 px-8 '>
+        <div className='card-Img d-flex pt-16 gap-4 px-8 '>
           <div className='card border-0'>
-            <Image src={G1} />
+            <Image src={G7} />
             <span className='p-4'>
               <li>Hair Cut</li>
               <li>Beard Trim</li>
@@ -171,12 +187,12 @@ export const Mainpage = () => {
               <li>Cleanser</li>
             </span>
             <span className='d-flex gap-16 bg-slate-300 justify-center p-3 font-black'>
-              <p>1000</p>
-              <button className='bg-slate-500 flex p-2 rounded-lg'>GET STARTED</button>
+              <p className='text-xl pt-2'>RS-1000/-</p>
+              <button className='bg-slate-500  p-2 rounded-lg'>GET STARTED</button>
             </span>
           </div>
           <div className='card border-0'>
-            <Image src={G1} />
+            <Image src={G6} />
             <span className='p-4'>
               <li>Hair Cut</li>
               <li>Beard Trim</li>
@@ -187,12 +203,12 @@ export const Mainpage = () => {
               <li>Cleanser</li>
             </span>
             <span className='d-flex gap-16 bg-slate-300 justify-center p-3 font-black'>
-              <p>2000</p>
+              <p className='text-xl pt-2'>RS-2000/-</p>
               <button className='bg-slate-500 p-2 rounded-lg'>GET STARTED</button>
             </span>
           </div>
           <div className='card border-0'>
-            <Image src={G1} />
+            <Image src={G2} />
             <span className='p-4'>
               <li>Hair Cut</li>
               <li>Beard Trim</li>
@@ -203,8 +219,8 @@ export const Mainpage = () => {
               <li>Cleanser</li>
             </span>
             <span className='d-flex gap-8 bg-slate-300 p-3 justify-center font-black'>
-              <p>3000</p>
-              <button className='aa bg-slate-500 p-2 rounded-lg'>GET STARTED</button>
+              <p className='text-xl pt-2 '>RS-3000/-</p>
+              <button className=' bg-slate-500 p-2 rounded-lg'>GET STARTED</button>
             </span>
           </div>
         </div>
