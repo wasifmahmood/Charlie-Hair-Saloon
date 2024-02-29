@@ -22,12 +22,6 @@ const Header = () => {
             </div>
             <div className='headermiddle text-white pt-2 d-flex'>
                 <h6>CHARLIE HAIR SALOON</h6>
-                <Image
-                    src={charlie}
-                    alt="wasif"
-                    objectfit="cover"
-                    style={{ width: '30px', height: '30px' }}
-                />
             </div>
             <div className='headerright space-x-4 text-white '>
                 <button>
