@@ -1,3 +1,4 @@
+
 "use client"
 import Image from 'next/image';
 import React from 'react'
@@ -8,7 +9,10 @@ import Hotshave from "../../../assests/image/Hotshave.jpg"
 import Hairshampoo from "../../../assests/image/Hairshampoo.jpg"
 import about from "../../../assests/image/about.jpg"
 import { FaCalendarDays } from "react-icons/fa6";
-import barber from "../../../assests/image/barber.jpg"
+import barber1 from "../../../assests/image/barber/barber1.jpg"
+import barber2 from "../../../assests/image/barber/barber2.jpg"
+import barber3 from "../../../assests/image/barber/barber3.jpg"
+import barber4 from "../../../assests/image/barber/barber4.jpg"
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
@@ -28,13 +32,87 @@ import { useState } from 'react';
 
 export const Mainpage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [popupVisible, setPopupVisible] = useState(false);
+  const [selectedBarber, setSelectedBarber] = useState(null);
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  const barbers = [
+    {
+      imageUrl: barber1,
+      name: 'Wasif',
+      description: 'A senior barber is a highly skilled grooming expert, proficient in diverse haircutting techniques, beard grooming, and providing personalized client consultations, ensuring exceptional service and satisfaction. They lead by example, mentor junior staff, and maintain a professional, hygienic environment in the barbershop or salon.',
+      socialMedia: [<FaFacebookF />, <FaInstagram />, <FaTwitter />, <FaPhoneAlt />],
+      phoneNumber: '1234567890',
+      services: ['Hair Cut', 'Beard Trim', 'Hair Shampoo', 'Clipper Cut', 'Hair Style', 'Face Shave', 'Moustache Trim']
+    },
+    {
+      imageUrl: barber2,
+      name: 'ALi',
+      description: 'A junior barber is an entry-level grooming professional, assisting senior staff with basic haircutting, client service, and maintaining hygiene standards while eagerly learning and developing their skills in the industry.',
+      socialMedia: [<FaFacebookF />, <FaInstagram />, <FaTwitter />, <FaPhoneAlt />],
+      phoneNumber: '1234567890',
+      services: ['Hair Cut', 'Beard Trim', 'Hair Shampoo', 'Clipper Cut', 'Hair Style', 'Face Shave', 'Moustache Trim']
+    },
+    {
+      imageUrl: barber3,
+      name: 'Usman',
+      description: 'A junior barber is an entry-level grooming professional, assisting senior staff with basic haircutting, client service, and maintaining hygiene standards while eagerly learning and developing their skills in the industry.',
+      socialMedia: [<FaFacebookF />, <FaInstagram />, <FaTwitter />, <FaPhoneAlt />],
+      phoneNumber: '1234567890',
+      services: ['Hair Cut', 'Beard Trim', 'Hair Shampoo', 'Clipper Cut', 'Hair Style', 'Face Shave', 'Moustache Trim']
+    },
+    {
+      imageUrl: barber4,
+      name: 'Hanan',
+      description: 'A trainer barber is an experienced grooming professional who educates and mentors junior barbers, imparting expertise in haircutting, beard styling, and client consultation, fostering skill development and maintaining high standards of professionalism. They provide guidance, feedback, and support to help groomers refine their techniques and excel in their careers.',
+      socialMedia: [<FaFacebookF />, <FaInstagram />, <FaTwitter />, <FaPhoneAlt />],
+      phoneNumber: '1234567890',
+      services: ['Hair Cut', 'Beard Trim', 'Hair Shampoo', 'Clipper Cut', 'Hair Style', 'Face Shave', 'Moustache Trim']
+    },
+  ];
+
+  const cardsData = [
+    {
+      title: 'HAIR STYLES',
+      image: Hairstyle,
+      description: 'A hair style refers to the way in which one\'s hair is arranged, shaped, or cut, often reflecting personal preference or current fashion trends.'
+    },
+    {
+      title: 'BEARD TRIM',
+      image: Beardtrim,
+      description: 'A beard trim is a haircut style characterized by short, neat, and closely cropped hair around the sides and back of the head, typically leaving more length and volume on top.'
+    },
+    {
+      title: 'HOT SHAVE',
+      image: Hotshave,
+      description: 'A hot shave, also known as a hot towel shave or traditional wet shave, is a luxurious grooming experience where a professional barber uses hot towels, shaving cream, and a straight razor to carefully remove facial hair.'
+    },
+    {
+      title: 'HAIR SHAMPOO',
+      image: Hairshampoo,
+      description: 'Hair shampoo is a cleansing product used to remove dirt, oil, and other impurities from the scalp and hair strands.'
+    }
+  ];
+
+
+  const openCardDetails = (index) => {
+    setSelectedCard(index);
+  };
+
+  const openBarberDetails = (barber) => {
+    setSelectedBarber(barber);
+  };
+
+
 
   const openPopup = (imageUrl) => {
     setSelectedImage(imageUrl);
+    setPopupVisible(true);
   };
 
   const closePopup = () => {
     setSelectedImage(null);
+    setPopupVisible(false);
   };
 
   return (
@@ -57,114 +135,97 @@ export const Mainpage = () => {
           <button className='mx-16 px-8 py-3 border rounded-lg border-white'>LEARN MORE ABOUT US</button>
         </div>
       </div>
-      <div className='cards d-flex justify-between text-center bg-black '>
-        <div className='card w-1/4  bg-black text-white p-2'>
-          <div className='card-image flex justify-center h-2/4'>
-            <Image src={Hairstyle} className='rounded-full w-3/4 h-3/4 ' />
+      <div className='cards d-flex justify-between text-center bg-black'>
+        {cardsData.map((card, index) => (
+          <div
+            key={index}
+            className='card w-1/4 bg-black text-white p-2'
+            onClick={() => openCardDetails(index)}
+          >
+            <div className='card-content flex flex-col h-full'>
+              <div className='card-image flex justify-center h-2/4'>
+                <Image
+                  src={card.image}
+                  className='rounded-full w-3/4 h-3/4 '
+                  alt={card.title}
+                />
+              </div>
+              <div className='card-details h-1/2'>
+                <h4>{card.title}</h4>
+                <p>{card.description}</p>
+              </div>
+            </div>
           </div>
-          <div className='card-content'>
-            <h4>HAIR STYLES</h4>
-            <p>A hair style refers to the way in which one's hair is arranged, shaped, or cut, often reflecting personal preference or current fashion trends.</p>
-          </div>
-        </div>
-        <div className='card w-1/4  bg-black text-white p-2'>
-          <div className='card-image flex justify-center h-2/4'>
-            <Image src={Beardtrim} className='rounded-full w-3/4 h-3/4' />
-          </div>
-          <div className='card-content'>
-            <h4>BEARD TRIM</h4>
-            <p>A bread trim is a haircut style characterized by short, neat, and closely cropped hair around the sides and back of the head, typically leaving more length and volume on top. </p>
-          </div>
-        </div>
-        <div className='card w-1/4  bg-black text-white p-2'>
-          <div className='card-image flex justify-center h-2/4'>
-            <Image src={Hotshave} className='rounded-full w-3/4 h-3/4 ' />
-          </div>
-          <div className='card-content'>
-            <h4>HOT SHAVE</h4>
-            <p>
-              A hot shave, also known as a hot towel shave or traditional wet shave, is a luxurious grooming experience where a professional barber uses hot towels, shaving cream, and a straight razor to carefully remove facial hair.</p>
-          </div>
-        </div>
-        <div className='card w-1/4  bg-black text-white p-2'>
-          <div className='card-image flex justify-center h-2/4'>
-            <Image src={Hairshampoo} className='rounded-full w-3/4 h-3/4' />
-          </div>
-          <div className='card-content'>
-            <h4>HAIR SHAMPOO</h4>
-            <p>Hair shampoo is a cleansing product used to remove dirt, oil, and other impurities from the scalp and hair strands.</p>
-          </div>
-        </div>
-      </div>
-      <div className='about d-flex pl-32'>
-        <div className='aboutleft'>
-          <Image src={about} />
-        </div>
-        <div className='aboutright p-16'>
-          <p className='font-black text-gray-600'>ABOUT BARBER</p>
-          <h1 className='font-black pt-2'>A SMOOTH BARBER EXPERIENCE IN YOUR TOWN</h1>
-          <p className='pt-4 pb-8'>A barber is a professional skilled in the art of cutting, styling, and grooming hair, particularly men's hair. Barbers often provide a range of services including haircuts, beard trims, hot shaves, and hair styling. Traditionally, barbershops have been social hubs where men gather not only for grooming but also for conversation and camaraderie. While the profession has evolved over time, barbers continue to play a vital role in helping individuals look and feel their best through their expertise in hair care and grooming techniques.</p>
-          <div className='calander d-flex px-8 p-4 gap-8 font-black bg-black w-2/3 h-28 text-white'>
-            <FaCalendarDays size={50} className='bg-white text-black rounded-full p-2' />
-            <p>10 <br /> YEAR OF <br />EXPERIENCE</p>
-          </div>
-        </div>
+        ))}
       </div>
       <div className='Team  bg-black text-white p-16'>
         <div className='text-center'>
           <p className='text-gray-600 font-black'>TEAM</p>
-          <h3 className='font-black'>OUR EXPERT <span className='text-gray-600'>TEAM</span></h3>
+          <h3 className='font-black'>OUR EXPERT <span className='text-slate-500'>TEAM</span></h3>
           <span className='Team-Img d-flex  pt-16 gap-2 flex justify-center'>
-            <Image src={barber} className='w-40 h-48' />
-            <Image src={barber} className='w-40 h-48' />
-            <Image src={barber} className='w-40 h-48' />
-            <Image src={barber} className='w-40 h-48' />
+            {barbers.map((barber, index) => (
+              <Image
+                key={index}
+                src={barber.imageUrl}
+                className='w-40 h-48 cursor-pointer '
+                onClick={() => openBarberDetails(barber)}
+                alt={`Barber ${index + 1}`}
+              />
+            ))}
           </span>
         </div>
-        <div className='select-person p-16 d-flex'>
-          <span className='w-1/3'>
-            <Image src={barber} className='w-full h-3/4' />
-          </span>
-          <span className='w-2/4 px-8 py-4'>
-            <h2 className='font-black'>Ahsan Khan</h2>
-            <p className='text-wrap'>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-            <p className='d-flex gap-4 pb-2'>
-              <span className=' bg-slate-500 rounded-full p-2'><FaFacebookF /></span>
-              <span className=' bg-slate-500 rounded-full p-2'><FaInstagram /></span>
-              <span className=' bg-slate-500 rounded-full p-2'><FaTwitter /></span>
-              <span className=' bg-slate-500 rounded-full p-2'><FaPhoneAlt /></span>
-            </p>
-            <button className='pt-2 px-4 py-2 border rounded-sm border-slate-500 '>MAKE SCHEDULE</button>
-          </span>
-          <span className='service w-1/3 px-4 py-4'>
-            <h5 className='font-black pb-3'>LIST OF SERVICES</h5>
-            <li>Hair Cut</li>
-            <li>Beart Trim</li>
-            <li>Hair Shampoo</li>
-            <li>Clipper Cut</li>
-            <li>Hair Style</li>
-            <li>face Shave</li>
-            <li>Moustache Trim</li>
-          </span>
-        </div>
+        {selectedBarber && (
+          <div className='select-person p-16 d-flex'>
+            <div className='w-1/3 pt-4'>
+              <Image src={selectedBarber.imageUrl} className='w-full h-3/4' alt='Selected Barber' />
+            </div>
+            <span className='barber-detail w-2/4 px-8 py-4'>
+              <h2 className='font-black'>{selectedBarber.name}</h2>
+              <p className='text-wrap'>{selectedBarber.description}.</p>
+              <p className='d-flex gap-4 pb-2'>
+                {selectedBarber.socialMedia.map((social, index) => (
+                  <span key={index} className=' bg-slate-500 rounded-full p-3'>{social}</span>
+                ))}
+                {/* <span className=' bg-slate-500 rounded-full p-2'>{selectedBarber.phoneNumber}</span> */}
+              </p>
+              <button className='pt-2 px-4 py-2 c '>MAKE SCHEDULE</button>
+            </span>
+            <span className='service w-1/3 px-4 py-4'>
+              <h5 className='font-black pb-3'>LIST OF SERVICES</h5>
+              <ul>
+                {selectedBarber.services.map((service, index) => (
+                  <li key={index}>{service}</li>
+                ))}
+              </ul>
+            </span>
+          </div>
+        )}
       </div>
       <div className='Gallery pt-16'>
         <span className='text-center'>
           <p className='text-gray-600 font-black'>Gallery</p>
           <h2 className='font-black'>PHOTOS OF YOUR EVENTS</h2>
         </span>
-        <div className='Event-Img d-flex pt-16'>
-          {[G1, G2, G3, G4, G5, G6, G7, G8].map((imageUrl, index) => (
+        <span className='Event-Img d-flex pt-16'>
+          {[G1, G2, G3, G4].map((imageUrl, index) => (
             <p className='image-container w-1/4' key={index} onClick={() => openPopup(imageUrl)}>
               <Image src={imageUrl} alt={`Image ${index + 1}`} />
               <h4 className='overlay'><FaSearchPlus /></h4>
             </p>
           ))}
-        </div>
-        {selectedImage && (
+        </span>
+        <span className='Event-Img d-flex'>
+          {[G5, G6, G7, G8].map((imageUrl, index) => (
+            <p className='image-container w-1/4' key={index} onClick={() => openPopup(imageUrl)}>
+              <Image src={imageUrl} alt={`Image ${index + 1}`} />
+              <h4 className='overlay'><FaSearchPlus /></h4>
+            </p>
+          ))}
+        </span>
+        {popupVisible && (
           <div className="popup" onClick={closePopup}>
             <span className="close" onClick={closePopup}>&times;</span>
-            <Image src={imageUrl} alt="Popup Image" />
+            <Image src={selectedImage} alt="Popup Image" />
           </div>
         )}
       </div>
