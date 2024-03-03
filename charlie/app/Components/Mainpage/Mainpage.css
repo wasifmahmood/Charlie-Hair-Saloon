@@ -10,14 +10,9 @@
 
 }
 
-.maintext-heading,
-.font-heading {
-    font-weight: bolder;
-}
-
 .maintext {
     position: absolute;
-    padding-top: 20%;
+    padding-top: 15%;
     padding-left: 50%;
     padding-right: 10%;
 }

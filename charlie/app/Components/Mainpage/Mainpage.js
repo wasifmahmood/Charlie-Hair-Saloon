@@ -7,8 +7,6 @@ import Hairstyle from "../../../assests/image/Hairstyle.jpg"
 import Beardtrim from "../../../assests/image/Beardtrim.jpg"
 import Hotshave from "../../../assests/image/Hotshave.jpg"
 import Hairshampoo from "../../../assests/image/Hairshampoo.jpg"
-import about from "../../../assests/image/about.jpg"
-import { FaCalendarDays } from "react-icons/fa6";
 import barber1 from "../../../assests/image/barber/barber1.jpg"
 import barber2 from "../../../assests/image/barber/barber2.jpg"
 import barber3 from "../../../assests/image/barber/barber3.jpg"
@@ -34,7 +32,6 @@ export const Mainpage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [popupVisible, setPopupVisible] = useState(false);
   const [selectedBarber, setSelectedBarber] = useState(null);
-  const [selectedCard, setSelectedCard] = useState(null);
 
   const barbers = [
     {
@@ -94,16 +91,27 @@ export const Mainpage = () => {
     }
   ];
 
-
-  const openCardDetails = (index) => {
-    setSelectedCard(index);
-  };
+  const pricingData = [
+    {
+      image: G7,
+      services: ['Hair Cut', 'Beard Trim', 'Moustache Trim', 'Clipper Cut', 'Face Shave', 'Hair Style', 'Cleanser'],
+      amount: 1000
+    },
+    {
+      image: G6,
+      services: ['Hair Cut', 'Beard Trim', 'Moustache Trim', 'Clipper Cut', 'Face Shave', 'Hair Style', 'Cleanser'],
+      amount: 2000
+    },
+    {
+      image: G2,
+      services: ['Hair Cut', 'Beard Trim', 'Moustache Trim', 'Clipper Cut', 'Face Shave', 'Hair Style', 'Cleanser'],
+      amount: 3000
+    }
+  ];
 
   const openBarberDetails = (barber) => {
     setSelectedBarber(barber);
   };
-
-
 
   const openPopup = (imageUrl) => {
     setSelectedImage(imageUrl);
@@ -117,8 +125,8 @@ export const Mainpage = () => {
 
   return (
     <div>
-      <div className='mainpage'>
-        <div className='homeimage '>
+      <div className='mainpage '>
+        <div className='homeimage'>
           <Image
             src={Home}
             layout='fill'
@@ -126,8 +134,8 @@ export const Mainpage = () => {
           />
         </div>
         <div className='maintext text-white'>
-          <h5 className='font-heading text-center'>WELCOME TO CHARLIE</h5>
-          <h1 className='maintext-heading'>WE WILL MAKE <span style={{
+          <h5 className='font-heading text-center font-black'>WELCOME TO CHARLIE</h5>
+          <h1 className='maintext-heading font-black'>WE WILL MAKE <span style={{
             WebkitTextStroke: "2px white",
             color: "transparent"
           }}>YOUR STYLE</span> OF YOUR DREAMS</h1>
@@ -140,17 +148,16 @@ export const Mainpage = () => {
           <div
             key={index}
             className='card w-1/4 bg-black text-white p-2'
-            onClick={() => openCardDetails(index)}
           >
-            <div className='card-content flex flex-col h-full'>
-              <div className='card-image flex justify-center h-2/4'>
+            <div className='card-content flex flex-col h-full relative'>
+              <div className='card-image object-cover h-48 w-48 absolute top-0 left-1/2 transform -translate-x-1/2 -mt-20 '>
                 <Image
                   src={card.image}
-                  className='rounded-full w-3/4 h-3/4 '
+                  className='rounded-full w-full h-full '
                   alt={card.title}
                 />
               </div>
-              <div className='card-details h-1/2'>
+              <div className='card-details h-1/2 mt-16 pt-16'>
                 <h4>{card.title}</h4>
                 <p>{card.description}</p>
               </div>
@@ -186,9 +193,8 @@ export const Mainpage = () => {
                 {selectedBarber.socialMedia.map((social, index) => (
                   <span key={index} className=' bg-slate-500 rounded-full p-3'>{social}</span>
                 ))}
-                {/* <span className=' bg-slate-500 rounded-full p-2'>{selectedBarber.phoneNumber}</span> */}
               </p>
-              <button className='pt-2 px-4 py-2 c '>MAKE SCHEDULE</button>
+              <button className='pt-2 px-4 py-2 border border-slate-500 '>MAKE SCHEDULE</button>
             </span>
             <span className='service w-1/3 px-4 py-4'>
               <h5 className='font-black pb-3'>LIST OF SERVICES</h5>
@@ -235,55 +241,21 @@ export const Mainpage = () => {
           <p className='text-gray-600 font-black'>Pricing</p>
           <h2 className='font-black'>PRICE & PLANS</h2>
         </span>
-        <div className='card-Img d-flex pt-16 gap-4 px-8 '>
-          <div className='card border-0'>
-            <Image src={G7} />
-            <span className='p-4'>
-              <li>Hair Cut</li>
-              <li>Beard Trim</li>
-              <li>Moustache Trim</li>
-              <li>Clipper Cut</li>
-              <li>Face Shave</li>
-              <li>Hair Style</li>
-              <li>Cleanser</li>
-            </span>
-            <span className='d-flex gap-16 bg-slate-300 justify-center p-3 font-black'>
-              <p className='text-xl pt-2'>RS-1000/-</p>
-              <button className='bg-slate-500  p-2 rounded-lg'>GET STARTED</button>
-            </span>
-          </div>
-          <div className='card border-0'>
-            <Image src={G6} />
-            <span className='p-4'>
-              <li>Hair Cut</li>
-              <li>Beard Trim</li>
-              <li>Moustache Trim</li>
-              <li>Clipper Cut</li>
-              <li>Face Shave</li>
-              <li>Hair Style</li>
-              <li>Cleanser</li>
-            </span>
-            <span className='d-flex gap-16 bg-slate-300 justify-center p-3 font-black'>
-              <p className='text-xl pt-2'>RS-2000/-</p>
-              <button className='bg-slate-500 p-2 rounded-lg'>GET STARTED</button>
-            </span>
-          </div>
-          <div className='card border-0'>
-            <Image src={G2} />
-            <span className='p-4'>
-              <li>Hair Cut</li>
-              <li>Beard Trim</li>
-              <li>Moustache Trim</li>
-              <li>Clipper Cut</li>
-              <li>Face Shave</li>
-              <li>Hair Style</li>
-              <li>Cleanser</li>
-            </span>
-            <span className='d-flex gap-8 bg-slate-300 p-3 justify-center font-black'>
-              <p className='text-xl pt-2 '>RS-3000/-</p>
-              <button className=' bg-slate-500 p-2 rounded-lg'>GET STARTED</button>
-            </span>
-          </div>
+        <div className='card-Img d-flex pt-16 gap-4 px-8'>
+          {pricingData.map((price, index) => (
+            <div key={index} className='card border-0 bg-white shadow-md p-4'>
+              <Image src={price.image} />
+              <ul className='p-4'>
+                {price.services.map((service, i) => (
+                  <li key={i}>{service}</li>
+                ))}
+              </ul>
+              <div className='flex justify-between items-center bg-slate-300 p-3 font-black'>
+                <p className='text-xl pt-2'>{`RS-${price.amount}/-`}</p>
+                <button className='bg-slate-500 text-white p-2 rounded-lg'>GET STARTED</button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
