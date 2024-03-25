@@ -1,24 +1,15 @@
+'use client'
 import * as React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Divider from "@mui/material/Divider";
-import About from "../pages/About/About";
-import Location from "../pages/Location/Location";
-import Service from "../pages/Service/Service";
-import { useNavigate } from "react-router-dom";
+
+import Link from "next/link";
+
 
 export const HeaderDrawer = ({ isOpen, onClose }) => {
-    // const navigate = useNavigate();
 
-    const aboutClick = () => {
-        navigate('/About');
-    };
-    const locationClick = () => {
-        navigate('/Location');
-    };
-    const serviceClick = () => {
-        navigate('/Service');
-    };
     const list = (
         <Box
             sx={{ width: 250 }}
@@ -27,11 +18,11 @@ export const HeaderDrawer = ({ isOpen, onClose }) => {
             onKeyDown={onClose}
         >
             <Divider />
-            <div className="text-center pt-5 text-lg text-wrap">
-                <h5 onClick={aboutClick}>About</h5>
-                <h5 onClick={locationClick}>Location</h5>
-                <h5 onClick={serviceClick}>Services</h5>
-                <h5>Contact</h5>
+            <div className="text-center pt-5 " style={{textDecoration: 'none'}}>
+                <h1> <Link href={"/About"}>About</Link></h1>
+                <h1> <Link href={"/Location"}>Location</Link></h1>
+                <h1> <Link href={"/Service"}>Service</Link></h1>
+                <h1> <Link href={"/Page"}>page</Link></h1>
             </div>
         </Box>
     );

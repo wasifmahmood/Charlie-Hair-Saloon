@@ -34,5 +34,7 @@
 .Image {
     width: 50%;
     background-size: cover;
-    background-image: url(../../../assests/image/LBG.jpeg);
+    background-image: url(../../assests/image/LBG.jpeg);
+    /* background-image: url(../../../assests/image/LBG.jpeg); */
+
 }

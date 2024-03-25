@@ -1,17 +1,17 @@
-import React from 'react'
+import React from "react";
 import './Service.css'
-import Link from 'next/link';
-import Location from "../Location/Location";
 import Image from 'next/image';
-import services from "../../../assests/image/services.jpg";
-import brush from "../../../assests/image/brush.png"
-import Razor from "../../../assests/image/Razor.png";
-import brushBW from "../../../assests/image/brushBW.png";
-import specical from "../../../assests/image/specical.jpg"
-import appoint from "../../../assests/image/appoint.jpg"
+import services from "../../assests/image/services.jpg";
+import brush from "../../assests/image/brush.png"
+import Razor from "../../assests/image/Razor.png";
+import brushBW from "../../assests/image/brushBW.png";
+import specical from "../../assests/image/specical.jpg"
+import appoint from "../../assests/image/appoint.jpg"
 import { TiTickOutline } from "react-icons/ti";
 
-const Service = () => {
+
+
+const service = () => {
     return (
         <div>
             <div className='service-home'>
@@ -143,14 +143,14 @@ const Service = () => {
                     <p className='saloontext'>Our chair is waiting for you! Schedule your next Hair Salon Experience today.</p>
                 </div>
                 <div className='right-content text-center' >
-                    
+
                 </div>
                 <div className='background-image-container ' >
                     <Image src={appoint} layout="fill" objectFit="cover" alt="Appointment Image" />
                 </div>
             </div>
         </div>
+
     )
 }
-
-export default Service
+export default service

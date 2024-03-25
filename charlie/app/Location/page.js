@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 import './Location.css'
 
-
-
-const Location = () => {
+const location = () => {
     return (
         <div>
             <div className='location d-flex p-5'>
@@ -30,4 +28,4 @@ const Location = () => {
     )
 }
 
-export default Location
+export default location
