@@ -1,14 +1,16 @@
-import Footer from "./Components/Footer/Footer";
-import Header from "./Components/Header";
 import 'bootstrap/dist/css/bootstrap.css';
-// import Location from "./pages/Location/Location";
-// import Service from "./pages/Service/Service";
+import Header from "./Components/Header";
+import Mainpage from './Components/Mainpage/Mainpage';
+import Footer from "./Components/Footer/Footer";
+
+
 
 export default function Home() {
   return (
-    <main >
+    <main>
       <Header />
-      <Footer/>
+      <Mainpage />
+      <Footer />
     </main>
   );
 }

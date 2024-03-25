@@ -1,0 +1,182 @@
+.service{
+    position: relative;
+    z-index: -1;
+}
+.service-left{
+position: absolute;
+/* z-index: -1; */
+}
+.service-right{
+    height: 100vh;
+    width: 100%;
+}
+.sev-Text {
+    padding-top: 1rem;
+    font-family: "Roboto Slab", sans-serif;
+    font-size: 29px;
+    font-weight: 400;
+    line-height: 29px;
+}
+
+.sev-heading {
+    position: relative;
+    font-family: "Alfa Slab One", display;
+    font-size: 80px;
+    font-weight: 400;
+    font-weight: bold;
+    line-height: 96px;
+}
+
+.sev-heading::after {
+    content: " ";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50%;
+    height: 5px;
+    background-color: red;
+}
+
+.sev-para {
+    font-family: Aleo, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+    margin: 20px 0;
+}
+
+.sev-point .menu-detail {
+    font-family: "Aleo", sans-serif;
+    font-size: 15px;
+    Font-weight: 400;
+    Line-height: 27.8571px;
+}
+
+.menu-main-heading,
+.menu-heading {
+    font-family: "Alfa Slab One", sans-serif;
+    font-size: 30px;
+    line-height: 42px;
+    position: relative;
+    font-weight: bolder;
+}
+
+.menu-main-heading::after {
+    content: " ";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: 5px;
+    background-color: red;
+}
+
+.service-menu-cutting,
+.service-menu-Shave {
+    border-bottom: 4px dotted black;
+}
+
+.menu-left {
+    width: 40%;
+}
+
+.menu-middle {
+    width: 20%;
+}
+
+.menu-right {
+    width: 35%;
+
+}
+
+.menu-left-shave {
+    width: 35%;
+}
+
+.menu-middle-Shave {
+    width: 30%;
+}
+
+.menu-right-shave {
+    width: 35%;
+}
+
+.menu-left-Trim {
+    width: 40%;
+}
+
+.menu-middle-Trim {
+    width: 30%;
+}
+
+.menu-right-Trim {
+    width: 30%;
+}
+
+.specical-menu-left {
+    width: 40%;
+
+
+}
+
+.specical-menu-right {
+    width: 60%;
+}
+
+.specical-heading {
+    font-family: "Alfa Slab One", sans-serif;
+    font-size: 40px;
+    line-height: 42px;
+    position: relative;
+    font-weight: bold;
+}
+
+.specical-heading::after {
+    content: " ";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: 5px;
+    background-color: red;
+}
+.appointment {
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: "70vh";
+}
+
+.left-content{
+    text-align: left;
+    align-items: center;
+    z-index: 1;
+    width: 70%;
+
+}
+.saloonheading{
+    font-family: "Fjalla One", sans-serif;
+    font-size: 40px;
+    font-weight: bolder;
+    line-height: 54.6px;
+}
+.saloontext{
+    font-family:  Aleo, sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 46.4286px;
+}
+.right-content {
+    z-index: 1;
+    width: 30%;
+    display: "flex";
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.appointment-button {
+    padding: 10px 20px;
+}
