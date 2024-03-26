@@ -49,87 +49,39 @@ const Login = ({ onClose, onClick }) => {
     };
 
     return (
-            <div>
-                <Button
-                    className="text-white"
-                    onClick={handleOpen}>
-                    Account
-                </Button>
-                <Modal
-                    open={open}
-                    onClose={handleClose}
-                    sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                    }}
-                >
-                    <Box sx={style} className="bg-black text-white">
-                        <div className='d-flex'>
-                            <div className=''>
-                                <h6>Login & Signup </h6>
-                            </div>
-                            <div
-                                className='ml-auto'
-                                onClick={handleClose}>
-                                <AiOutlineClose size={"20px"} />
-                            </div>
+        <div>
+            <Button
+                className="text-white"
+                onClick={handleOpen}>
+                Account
+            </Button>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                }}
+            >
+                <Box sx={style} className="bg-slate-500 text-white">
+                    <div className='d-flex'>
+                        <div className=''>
+                            <h6>Login & Signup </h6>
                         </div>
-                        <div className='d-flex justify-content-between py-2 pb-4'>
-                            <button onClick={handleLoginClick} className={showLogin ? 'underline' : ''}>Login</button>
-                            <button onClick={handleSignUpClick} className={showSignUp ? 'underline' : ''}>Signup</button>
+                        <div
+                            className='ml-auto'
+                            onClick={handleClose}>
+                            <AiOutlineClose size={"20px"} />
                         </div>
-                        {showLogin && (
-                            <div className='login '>
-                                <div>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        value={email}
-                                        placeholder="Your Email"
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        style={inputStyle}
-                                    />
-                                    <input
-                                        type="password"
-                                        id="pwd"
-                                        value={password}
-                                        placeholder="Enter Password"
-                                        minLength="6"
-                                        maxLength="10"
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        style={inputStyle}
-                                    />
-                                    <p className='text-end'>Forgot Password?</p>
-                                </div>
-                                <div
-                                    className="bg-black text-white text-center rounded-md "
-                                    style={inputStyle}
-                                >
-                                    Login
-                                </div>
-                            </div>
-                        )}
-                        {showSignUp && (
-                            <div className='signup'>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    value={name}
-                                    placeholder="Enter Your Name"
-                                    onChange={(e) => setName(e.target.value)}
-                                    style={inputStyle}
-                                />
-                                <input
-                                    type="text"
-                                    name="numonly"
-                                    id="phone"
-                                    value={phone}
-                                    placeholder="Enter Your Phone"
-                                    onChange={(e) => setPhone(e.target.value)}
-                                    inputMode="numeric"
-                                    style={inputStyle}
-                                />
+                    </div>
+                    <div className='d-flex place-content-center gap-4 py-2 pb-4 '>
+                        <button onClick={handleLoginClick} className={showLogin ? 'underline' : ''}>Login</button>
+                        <button onClick={handleSignUpClick} className={showSignUp ? 'underline' : ''}>Signup</button>
+                    </div>
+                    {showLogin && (
+                        <div className='login '>
+                            <div>
                                 <input
                                     type="email"
                                     id="email"
@@ -148,17 +100,65 @@ const Login = ({ onClose, onClick }) => {
                                     onChange={(e) => setPassword(e.target.value)}
                                     style={inputStyle}
                                 />
-                                <div
-                                    className="bg-black text-white text-center rounded-md  "
-                                    style={inputStyle}
-                                >
-                                    Register
-                                </div>
+                                <p className='text-end'>Forgot Password?</p>
                             </div>
-                        )}
-                    </Box>
-                </Modal>
-            </div>
+                            <div
+                                className="bg-black text-white text-center rounded-md "
+                                style={inputStyle}
+                            >
+                                Login
+                            </div>
+                        </div>
+                    )}
+                    {showSignUp && (
+                        <div className='signup'>
+                            <input
+                                type="text"
+                                id="name"
+                                value={name}
+                                placeholder="Enter Your Name"
+                                onChange={(e) => setName(e.target.value)}
+                                style={inputStyle}
+                            />
+                            <input
+                                type="text"
+                                name="numonly"
+                                id="phone"
+                                value={phone}
+                                placeholder="Enter Your Phone"
+                                onChange={(e) => setPhone(e.target.value)}
+                                inputMode="numeric"
+                                style={inputStyle}
+                            />
+                            <input
+                                type="email"
+                                id="email"
+                                value={email}
+                                placeholder="Your Email"
+                                onChange={(e) => setEmail(e.target.value)}
+                                style={inputStyle}
+                            />
+                            <input
+                                type="password"
+                                id="pwd"
+                                value={password}
+                                placeholder="Enter Password"
+                                minLength="6"
+                                maxLength="10"
+                                onChange={(e) => setPassword(e.target.value)}
+                                style={inputStyle}
+                            />
+                            <div
+                                className="bg-black text-white text-center rounded-md  "
+                                style={inputStyle}
+                            >
+                                Register
+                            </div>
+                        </div>
+                    )}
+                </Box>
+            </Modal>
+        </div>
     )
 }
 
