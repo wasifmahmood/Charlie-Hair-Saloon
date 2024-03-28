@@ -5,8 +5,10 @@ import Modal from '@mui/material/Modal';
 import { AiOutlineClose } from "react-icons/ai";
 import DateTimePicker from 'react-datetime-picker';
 import Select from 'react-select';
-// import Image from 'next/image';
-// import appoint from "../../assests/image/appoint.jpg"
+import 'react-datetime-picker/dist/DateTimePicker.css';
+import 'react-calendar/dist/Calendar.css';
+import 'react-clock/dist/Clock.css';
+
 
 const style = {
     position: 'absolute',
@@ -19,25 +21,31 @@ const style = {
     p: 4,
 };
 const inputStyle = {
-    marginTop: "5px",
-    marginBottom: "5px",
+    marginTop: "10px",
+    marginBottom: "10px",
     padding: "10px",
     border: "1px solid #ccc",
     borderRadius: "20px",
     width: "50%",
+
 };
 
 const BookNow = ({ onClose }) => {
     const [open, setOpen] = useState(false);
     const [selectedService, setSelectedService] = useState(null);
     const [selectedDateTime, setSelectedDateTime] = useState(new Date());
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
 
     const options = [
-        { value: 'haircut', label: 'Haircut' },
-        { value: 'shave', label: 'Shave' },
+
+        { value: 'Hair Cut', label: 'Hair Cut', Price: "100" },
+        { value: 'Face Shave', label: 'Face Shave' },
         { value: 'beard-trim', label: 'Beard Trim' },
-        { value: 'hairstyling', label: 'Hairstyling' },
-        // Add more options as needed
+        { value: 'hair Styling', label: 'Hair Styling' },
+        { value: 'Moustache Trim', label: 'Moustache Trim' },
+        { value: 'Clipper Cut', label: 'Clipper Cut' },
+        { value: 'Cleanser', label: 'Cleanser' },
     ];
 
     const handleOpen = () => {
@@ -53,8 +61,16 @@ const BookNow = ({ onClose }) => {
         setSelectedService(selectedOption);
     };
 
-    const appointment = () => {
-        // Logic to handle appointment booking
+    const appointmentBook = () => {
+        if (name.length < 3 || name.length > 20) {
+            alert('Please enter a name between 3 and 20 characters.');
+            return;
+        }
+        if (phone.length < 11) {
+            alert('Please enter a valid phone number with 11 digits.');
+            return;
+        }
+        // Perform appointment booking logic here
     };
     return (
         <div>
@@ -73,22 +89,53 @@ const BookNow = ({ onClose }) => {
                 }}
             >
                 <Box sx={style} className="bg-slate-500">
-                    <div className='d-flex place-content-center'>
-                        <h3 className='text-black font-black'>Book Appointment</h3>
+                    <div className='d-flex text-white'>
+                        <h3 className='font-black'>Book Appointment</h3>
                         <span className='ml-auto' onClick={handleClose}><AiOutlineClose size={"30px"} /></span>
                     </div>
-                    {/* <Image src={appoint} /> */}
                     <div className='items-center'>
-                        <span>
-                            <input type="text" id="name" style={inputStyle} placeholder="Your Name" />
-                            <input type='text' id='phone' style={inputStyle} placeholder="Your Phone Number" />
+                        <span className='flex gap-4'>
+                            <input
+                                type="text"
+                                id="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                style={inputStyle}
+                                minLength="3"
+                                maxLength="20"
+                                placeholder="Your Name"
+                                required
+                            />
+                            <input
+                                type='tel'
+                                id='phone'
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
+                                style={inputStyle}
+                                maxLength="11"
+                                placeholder="Your Phone Number"
+                                required
+                            />
                         </span>
-                        <Select options={options} value={selectedService} onChange={serviceChange} placeholder="Select a service" />
+                        <Select
+                            options={options}
+                            value={selectedService}
+                            onChange={serviceChange}
+                            placeholder="Select a service"
+                            isMulti
+                            required
+                        />
                         <div style={inputStyle} className='place-content-center'>
-                            <DateTimePicker onChange={dateTimeChange} value={selectedDateTime} />
+                            <DateTimePicker
+                                onChange={dateTimeChange}
+                                value={selectedDateTime}
+                                required
+                            />
                         </div>
                     </div>
-                    <button className='bg-black p-2 rounded text-white items-center' onClick={appointment}>MAKE AN APPOINTMENT</button>
+                    <div className='flex justify-center pt-4'>
+                        <button className='bg-black p-2 rounded text-white' onClick={appointmentBook}>MAKE AN APPOINTMENT</button>
+                    </div>
                 </Box>
             </Modal>
         </div>

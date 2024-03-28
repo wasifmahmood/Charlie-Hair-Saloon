@@ -119,6 +119,7 @@ const Login = ({ onClose, onClick }) => {
                                 placeholder="Enter Your Name"
                                 onChange={(e) => setName(e.target.value)}
                                 style={inputStyle}
+                                required
                             />
                             <input
                                 type="text"
@@ -128,6 +129,7 @@ const Login = ({ onClose, onClick }) => {
                                 placeholder="Enter Your Phone"
                                 onChange={(e) => setPhone(e.target.value)}
                                 inputMode="numeric"
+                                required
                                 style={inputStyle}
                             />
                             <input
@@ -137,6 +139,7 @@ const Login = ({ onClose, onClick }) => {
                                 placeholder="Your Email"
                                 onChange={(e) => setEmail(e.target.value)}
                                 style={inputStyle}
+                                required
                             />
                             <input
                                 type="password"
@@ -146,6 +149,7 @@ const Login = ({ onClose, onClick }) => {
                                 minLength="6"
                                 maxLength="10"
                                 onChange={(e) => setPassword(e.target.value)}
+                                required
                                 style={inputStyle}
                             />
                             <div
